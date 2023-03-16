@@ -8,6 +8,59 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!--Creating Container for flexbox for content section one(left side(flex container))-->
+    <div class="content-section-one">
+        <!--Nested container for logo section --->
+        <div class="logo-grid">
+            <!--link photo of logo image(flex item)-->
+        </div>
+        <div>
+            <!--Credit background image owner (flex item)-->
+        </div>
+    </div><!--End of content section one container-->
+    <!--Creating container flexbox for content section two (right side(flex container))-->
+    <div class="content-section-two">
+        <!--Nested flex container for information grid-->
+        <div class="information-grid">
+            <!--Display information of site-->
+        </div>
+        <div class="form-container">
+            <form action="" method="">
+                <legend>Let's do this</legend>
+                <div>
+                    <label for="fname">FIRST NAME</label>
+                    <input type="text" id="fname" name="user_fName" required>
+                </div>
+                <div>
+                    <label for="lname">LAST NAME</label>
+                    <input type="text" id="lname" name="user_lName" required>
+                </div>
+                <div>
+                    <label for="email">EMAIL</label>
+                    <input type="email" id="email" name="user_mail" required>
+                </div>
+                <div>
+                    <label for="userTel">PHONE NUMBER</label>
+                    <input type="tel" id="userTel" name="user_phoneNumber" required>
+                </div>
+                <div>
+                    <label for="pwd">PASSWORD</label>
+                    <input type="password" id="pwd" name="user_Password" required>
+                </div>
+                <div>
+                    <label for="cfmPwd">CONFIRM PASSWORD</label>
+                    <input type="password" id="cfmPwd" name="cfmPassword" required>
+                </div>
+                <div>
+                    <button type="submit">Create Account</button>
+                </div>
+                <div>
+                    <!--Redirect user to log in page-->
+                </div>
+            </form>
+        </div>
+    </div>
+    
     
 </body>
 </html>
