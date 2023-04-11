@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "norse";
+    src: url(fonts/Norse-Bold.otf) format(otf);
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -6,21 +11,183 @@
 
 body{
     display: flex;
+    background-color: white;  
+}
+
+.section-one-container{
+    display: flex;
     flex-direction: column;
+    
 }
 
-.content-section-one{
+
+.section-two-container{
     display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
-.content-section-two{
+
+.logo-container{
     display: flex;
+    align-items: center;
+    justify-content: center;
+    transform:translateY(-780px);
+    background-color: rgba(0, 0, 0, 50%);
 }
 
-.information-grid{
+#odin-logo{
+    width:100px; 
+    height:auto;
+}
+
+#logo-font{
+    font: 4.5em "norse";
+    color: white;
+}
+
+.information-container{
     display: flex;
+    flex-direction: column;
+    gap: 25px;
+    color:black;
+    width: 580px;
+    margin-left: 25px;
+    margin-top: 140px;
+    font: 1.2em sans-serif;
 }
 
 .form-container{
     display: flex;
+    background-color: white;
+    margin-left: 25px;
+    margin-top: 65px;
+    font: 1em sans-serif;
+}
+
+.inside-form-container{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 700px;
+    gap: 10px;
+    margin-bottom: 30px;
+    justify-content: space-around;
+}
+
+.name-fields{
+    display: flex;
+    gap: 90px;
+    transform: translateX(-130px);
+    margin-top: 10px;
+}
+
+.mail-phone-fields{
+    display: flex;
+    gap: 90px;
+    transform: translateX(-130px);
+}
+
+.password-fields{
+    display: flex;
+    gap: 90px;
+    transform: translateX(-112px);
+}
+
+.submission-container{
+    display: flex;
+    flex-direction: column;
+    gap:30px;
+}
+
+.field{
+    max-width: 150px;
+}
+
+.user-cfmPwd{
+    max-width: 190px;
+}
+
+.background-creator-container{
+    display: flex;
+    transform: translateY(-170px);
+    justify-content: center;
+    color: white;
+    margin-bottom: -200px;
+    
+}
+
+.background-creator-container  a{
+    color: white;
+}
+
+
+#fname,#lname,#email,
+#userTel, #pwd, #cfmPwd{
+    box-shadow: inset 1px 1px 3px #E5E7EB;
+    border-radius: 5px;
+}
+
+.submission-container{
+    transform: translateX(22px);
+}
+.submission-container a{
+    color: #596D48;
+}
+
+.submission-container p{
+    font-size:0.95em;
+}
+
+#fname, #lname, #email,
+#userTel, #pwd, #cfmPwd:focus{
+    box-shadow:  blue;
+}
+input:valid{
+    border: 1px solid #596D48;
+}
+
+input:invalid{
+    border: 1px solid red;
+}
+
+#pwd.invalid{
+    border-color: red;
+    background-color: #fdd;
+}
+
+#pwd:focus.invalid{
+    outline: none;
+}
+
+/*
+#fnmae, #lname, #email,
+#userTel, #pwd, #cfmPwd:invalid{
+    box-shadow: red;
+    border: 1px solid red;
+}
+*/
+.error{
+    width: 100%;
+    padding: 0;
+    font-size: 80%;
+    color: white;
+    border-radius: 0 0 5px 5px;
+    box-sizing: border-box;
+}
+
+.error.active{
+    padding: 0.3rem;
+    background-color: #900;
+    width: 300px;
+}
+button{
+    background-color: #596D48;
+    border-radius: 10px;
+    font: 1em sans serif;
+    color: white;
+    border: 1px #596D48;
+    padding-top: 10px;
+    padding-left: 30px;
+    padding-bottom: 10px;
+    padding-right: 30px;
 }

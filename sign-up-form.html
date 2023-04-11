@@ -9,58 +9,153 @@
 </head>
 <body>
     <!--Creating Container for flexbox for content section one(left side(flex container))-->
-    <div class="content-section-one">
+    <div class="section-one-container">
+        <img src="images/halie-west-25xggax4bSA-unsplash(1).jpg" alt="">
         <!--Nested container for logo section --->
-        <div class="logo-grid">
+        <div class="logo-container">
             <!--link photo of logo image(flex item)-->
+            <img src="images/odin-lined.png" alt="Odin Logo" id="odin-logo">
+            <h1 id="logo-font">ODIN</h1>
         </div>
-        <div>
-            <!--Credit background image owner (flex item)-->
+        <div class="background-creator-container">
+         <div>
+             <!--Credit background image owner (flex item)-->
+             <p>Photo by <a href="">Halie West</a> on <a href="">Unsplash</a></p>
+         </div>
         </div>
     </div><!--End of content section one container-->
     <!--Creating container flexbox for content section two (right side(flex container))-->
-    <div class="content-section-two">
+    <div class="section-two-container">
         <!--Nested flex container for information grid-->
-        <div class="information-grid">
+        <div class="information-container">
             <!--Display information of site-->
+            <p>This is not a real online service! You know you need something like 
+                this in your life to help you realise your deepest dreams.
+                Sign up now to get started.</p>
+            <p>You know you want to.</p>    
         </div>
         <div class="form-container">
-            <form action="" method="">
-                <legend>Let's do this</legend>
-                <div>
-                    <label for="fname">FIRST NAME</label>
-                    <input type="text" id="fname" name="user_fName" required>
-                </div>
-                <div>
+           <form action="" method="">
+             <legend>Let's do this</legend>
+              <div class="inside-form-container">
+                <div class="name-fields">
+                 <div class="fname field">
+                     <label for="fname">FIRST NAME</label>
+                     <input type="text" id="fname" name="user_fName" required>
+                 </div>
+                 <div class="lname field">
                     <label for="lname">LAST NAME</label>
                     <input type="text" id="lname" name="user_lName" required>
+                 </div>
                 </div>
-                <div>
-                    <label for="email">EMAIL</label>
-                    <input type="email" id="email" name="user_mail" required>
+                <div class="mail-phone-fields">
+                 <div class="user-email field">
+                     <label for="email">EMAIL</label>
+                     <input type="email" id="email" name="user_mail"required>
+                 </div>
+                 <div class="user-phone field">
+                     <label for="userTel">PHONE NUMBER</label>
+                     <input type="text" id="userTel" name="user_phoneNumber" maxlength="14" 
+                     pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" required>
+                 </div>
                 </div>
-                <div>
-                    <label for="userTel">PHONE NUMBER</label>
-                    <input type="tel" id="userTel" name="user_phoneNumber" required>
+                <div class="password-fields">
+                 <div class="user-pwd field">
+                     <label for="pwd">PASSWORD</label>
+                     <input type="text" id="pwd" name="user_Password" required>
+                     <span class="error" aria-live="polite"></span>
+                 </div>
+                 <div class="user-cfmPwd field">
+                     <label for="cfmPwd">CONFIRM PASSWORD</label>
+                     <input type="text" id="cfmPwd" name="cfmPassword" required>
+                     <span class="error" aria-live="polite"></span>
+                 </div>
                 </div>
-                <div>
-                    <label for="pwd">PASSWORD</label>
-                    <input type="password" id="pwd" name="user_Password" required>
+              </div>
+                <div class="submission-container">
+                 <div>   
+                     <button type="submit" id="create_account">Create Account</button>
+                 </div>
+                 <div>
+                     <!--Redirect user to log in page-->
+                     <p>Already have an account?<a href="somerandommock.html">Log in</a></p>
+                 </div>
                 </div>
-                <div>
-                    <label for="cfmPwd">CONFIRM PASSWORD</label>
-                    <input type="password" id="cfmPwd" name="cfmPassword" required>
-                </div>
-                <div>
-                    <button type="submit">Create Account</button>
-                </div>
-                <div>
-                    <!--Redirect user to log in page-->
-                </div>
+                <script>
+                     const form = document.querySelector("form");
+                     const password = document.getElementById("pwd");
+                     const passwordCfm = document.getElementById("cfmPwd");
+                     //password reg/match expression
+                     const passwordRegExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*&])[A-Za-z\d@$!%*?&]{8,10}$/;
+                                            /^(?=.*\d)(?=.*[a-z]) /
+                     const error = password.nextElementSibling;
+                     const noMatchError = passwordCfm.nextElementSibling;
+                     //Not CSS psuedo-class, therefore  we have to set the error class to our password fields
+                     window.addEventListener("load", () =>{
+
+                        //Test if field is empty
+                        const isValid = password.value.length === 0 ||
+                        passwordRegExp.test(password.value);
+                        password.className = isValid ? "valid" : "invalid";
+                     });
+
+                     //What happens when the user attempts to type in the field
+                     password.addEventListener("input", () =>{
+    
+                        const isValid = password.value.length === 0 ||
+                        passwordRegExp.test(password.value);
+                        if(isValid){
+                            password.className = "valid";
+                            error.textContent = "";
+                            error.className = "error";
+                        }
+                        else{
+                            password.className ="invalid";
+                        }
+                     });
+
+                     passwordCfm.addEventListener("input", () =>{
+                        const isValid = passwordCfm.value ===0;
+                        if(isValid){
+                            passwordCfm.className = "valid";
+                            noMatchError.textContent = "";
+                            noMatchError.className == "error";
+                        }
+                        else{
+                            passwordCfm.className = "invalid";
+                        }
+                     });
+
+                     //Event listener for when the user submits the data
+                     form.addEventListener("submit", (event) =>{
+                        event.preventDefault();
+
+                        const isValid = password.value.length === 0 ||
+                        passwordRegExp.test(password.value);
+                        if(!isValid){
+                            password.className = "invalid";
+                            error.textContent = "The must password must be 8 or more characters long and include one special minimum";
+                            error.className = "error active";
+                        }
+                        else{
+                            password.className = "valid";
+                            error.textContent = "";
+                            error.className = "error";
+                        }
+                        if(password.value != passwordCfm.value){
+                           passwordCfm.className =  "invalid";
+                           noMatchError.textContent = "Please make sure both password fields match";
+                           noMatchError.className = "error active" 
+                        }
+                        else{
+                            passwordCfm.className = "valid";
+                            noMatchError.textContent = "";
+                            noMatchError.className = "error";
+                        }
+                     });
+                </script>
             </form>
         </div>
     </div>
-    
-    
 </body>
 </html>
